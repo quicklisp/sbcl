@@ -769,10 +769,10 @@ unless :NAMED is also specified.")))
             (warn "slot name of ~S indicates probable syntax error in DEFSTRUCT" spec))
            (keyword
             (style-warn "slot name of ~S indicates possible syntax error in DEFSTRUCT" spec)))
-         spec)
+         (values spec 0))
         (cons
          (destructuring-bind
-               (name &optional (default nil default-p)
+               (name &optional (default 0 default-p)
                      &key (type nil type-p) (read-only nil ro-p))
              spec
            (when (dd-conc-name defstruct)
